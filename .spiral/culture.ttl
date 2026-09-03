@@ -1,0 +1,9 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:CUL-20260903-XCTYG-5
+    a sd:Culture ;
+    dcterms:identifier "CUL-20260903-XCTYG-5" ;
+    sd:repositoryPath ".spiral/culture.md" ;
+    sd:status sd:Accepted .

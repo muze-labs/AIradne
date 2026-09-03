@@ -1,0 +1,9 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:WPF-20260903-XCTYG-6
+    a sd:WarningProfile ;
+    dcterms:identifier "WPF-20260903-XCTYG-6" ;
+    sd:repositoryPath ".spiral/warning-profiles/WPF-20260903-XCTYG-6.md" ;
+    sd:status sd:Accepted .
