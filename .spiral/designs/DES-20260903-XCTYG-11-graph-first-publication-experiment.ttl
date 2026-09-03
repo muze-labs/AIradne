@@ -6,7 +6,7 @@ project:DES-20260903-XCTYG-11
     a sd:Design ;
     dcterms:identifier "DES-20260903-XCTYG-11" ;
     sd:repositoryPath ".spiral/designs/DES-20260903-XCTYG-11-graph-first-publication-experiment.md" ;
-    sd:status sd:Active ;
+    sd:status sd:Accepted ;
     sd:satisfies [
         a sd:ArtifactReference ;
         sd:artifact project:CYC-20260903-XCTYG-10 ;
