@@ -30,24 +30,32 @@ The project's core hypothesis is that a very small semantic core plus compact do
 
 | Observation | Evidence | Candidate architectural property | Counterpressure / limits | Confidence |
 |---|---|---|---|---|
-| Ariadne combines content, users/groups, media, multilingual sites, multisite management, and a filesystem-like repository. | `ariadne/README.md:8-14` | A durable system may benefit from one uniform addressable object/content space instead of separate storage, routing, media, and user-management domains. | This could also be monolithic convenience rather than a small semantic core. | Evidenced |
+| Ariadne combines content, users/groups, media, multilingual sites, multisite management, and a filesystem-like repository. | `ariadne/README.md:8-14` | A durable system may benefit from one uniform addressable object/content space instead of separate storage, routing, media, and user-management domains. | Human historical feedback says Ariadne repeatedly hit limits when graph-shaped data had to be forced into strict hierarchy. | Evidenced plus human correction |
 | Ariadne also bundled a browser IDE, debugger, sandboxed templates, workspaces, DTAP support, and import/export. | `ariadne/README.md:16-24` | Development operations can be made part of the same navigable environment rather than external tools only. | Bundling many tools can increase hidden semantic size and operational coupling. | Evidenced |
 | Ariadne was explicitly described as a stable system that handles mundane web-app concerns such as SQL, content storage, security, user management, caching, templating, site management, and NLS. | `ariadne/README:7-21` | The useful property may be not "CMS" but "common application concerns are represented once behind stable semantics." | This may optimize human delivery speed more than AI inspectability; the actual semantics may be too large. | Evidenced |
 | Ariadne exposes rich objects through simpler projections. FTP `#files#`, `#templates#`, and `#objects#` modes show different aspects of the same object space. | `ariadne/docs/ftp/readme.txt:13-32` | The same semantic object can support multiple task-specific projections without losing identity. | Projection rules become part of the semantic burden. The `#objects#` mode was explicitly unfinished. | Evidenced |
 | In FTP `#files#` mode, uploaded files become typed objects through configurable MIME-type mappings. | `ariadne/docs/ftp/readme.txt:36-59` | Object creation can be mediated by context-specific interpretation rules rather than hard-coded endpoint types. | Interpretation rules may become implicit magic unless exposed and testable. | Evidenced |
 | In FTP `#templates#` mode, object templates are exposed as files under the object where they are defined, with filename parts encoding local/default, type, template name, and language. | `ariadne/docs/ftp/readme.txt:62-91` | Behavior can be locally attached to objects while remaining inspectable through ordinary tools. | Filename encoding mixes several semantic axes and can confuse users/tools. | Evidenced |
-| Ariadne's NLS handling lets object-tree configuration "drip down" to children, including language defaults and template availability. | `ariadne/docs/nls.txt:69-97` | Contextual behavior/configuration inheritance can reduce repetition for tree-structured applications. | The NLS document itself calls the result "a bit complex" while saying the complexity is kept out of templates. | Evidenced |
+| Ariadne's NLS handling lets object-tree configuration "drip down" to children, including language defaults and template availability. | `ariadne/docs/nls.txt:69-97` | Contextual behavior/configuration inheritance can reduce repetition for tree-shaped projections. | The NLS document itself calls the result "a bit complex" while saying the complexity is kept out of templates; tree inheritance may be the wrong foundation for graph-shaped domains. | Evidenced plus human correction |
 | Subtypes allow new class names extending default classes and selecting templates for those subtypes. | `ariadne/docs/subtypes.txt:4-30` | Type and behavior specialization can be added locally without replacing the global object model. | Subtype querying had known inconsistency: `implements` did not find subtypes while `type` did. | Evidenced |
-| Grant resolution walks parent paths, user grants, group grants, nearest-parent precedence, and modifiers. | `ariadne/lib/objects/ariadne_object.php:948-975` | Authorization may need to be a first-class hierarchical semantic relation, not an afterthought in handlers. | The semantics are nontrivial and could be hard for AI or humans to audit if compressed into a hidden primitive. | Evidenced |
+| Grant resolution walks parent paths, user grants, group grants, nearest-parent precedence, and modifiers. | `ariadne/lib/objects/ariadne_object.php:948-975` | Authorization needs first-class semantic relations among actors, groups, objects, scopes, and projected containment. | The semantics are nontrivial and could be hard for AI or humans to audit if compressed into a hidden hierarchy primitive. | Evidenced plus human correction |
 | LDAP objects can appear as Ariadne objects by mapping Ariadne search expressions/properties to LDAP filters/attributes. | `ariadne/docs/ldap.txt:1-14`, `ariadne/docs/ldap.txt:62-116` | Foreign systems can be integrated by adapting them into a uniform object/query space. | Adapter mappings can hide important mismatch between local semantics and external system semantics. | Evidenced |
 
 ### Ariadne Interpretation
 
 Ariadne's most plausible durable concept is not its PHP implementation, CMS feature set, or template terminology. The deeper property appears to be:
 
-> A stable, navigable object space where identity, hierarchy, behavior selection, permissions, projections, and external adapters share enough semantics that many application concerns can be expressed locally.
+> A stable, navigable object space where identity, graph-shaped relationships, projected hierarchy/containment, behavior selection, permissions, projections, and external adapters share enough semantics that many application concerns can be expressed locally.
 
 The main warning is that Ariadne also demonstrates how contextual power can become implicit complexity. Acquisition, NLS, template selection, grants, projection modes, and external mappings may reduce local repetition while increasing the semantic load of the interpreter.
+
+### Human Evaluation Correction: Hierarchy Is Not Identity
+
+Human project feedback during evaluation materially changes the interpretation of Ariadne's evidence:
+
+> Hierarchical identity is insufficient. Ariadne repeatedly hit that wall when graph-based data had to be wrangled into a strict hierarchy. SimplyStore shows what may be the better model.
+
+This means hierarchy should not be treated as the likely foundation by default. The stronger candidate is stable identity with typed graph relationships, where hierarchy or containment is one useful projection among others. Ariadne's tree paths remain evidence for navigability, local context, and containment, but they are also counterevidence against making hierarchy the identity model.
 
 ## SimplyStore Evidence
 
@@ -83,11 +91,12 @@ The main warning is that SimplyStore's current human-developer convenience mecha
 | Candidate concept | Why it looks durable | What must still be tested |
 |---|---|---|
 | Uniform object/data space | Ariadne and SimplyStore both reduce duplicated app layers by letting identity/data shape drive behavior. | Whether one object/data model can stay small enough for AI inspection while supporting real workflows. |
-| Stable identity plus hierarchy | Ariadne paths and SimplyStore object IDs/history both make identity central. | Whether hierarchy is fundamental or merely one useful relation among many. |
-| Contextual behavior selection | Ariadne repeatedly benefits from local template/config/type/language behavior. | Whether acquisition-like behavior can be made explicit enough to audit. |
+| Stable identity plus graph-shaped relationships | Ariadne and SimplyStore both make identity central, and human feedback identifies strict hierarchy as a historical Ariadne limit. | What relationship primitives are sufficient, and whether hierarchy can remain a projection rather than the identity model. |
+| Hierarchy as projection, not foundation | Ariadne paths support useful navigation, locality, and inheritance, but graph-shaped domains should not be forced into path identity. | Whether projection/containment views can still support intuitive navigation, authorization explanation, and local behavior selection. |
+| Contextual behavior selection | Ariadne repeatedly benefits from local template/config/type/language behavior. | Whether acquisition-like behavior can be made explicit enough to audit across graph relationships and projected hierarchies. |
 | Semantic commands | SimplyStore shows why meaningful mutations preserve intent better than generic patches. | Whether commands can remain inspectable when their internal behavior grows. |
 | Derived projections/indexes | Ariadne projections and SimplyStore indexes suggest generated/read models can be derived from smaller sources. | Whether derivation can be mechanically verified and traced. |
-| Hierarchical/ contextual authorization | Ariadne grants show authorization is tied to object location, actor, groups, and behavior. | Whether a small capability model can avoid hidden precedence complexity. |
+| Relational/contextual authorization | Ariadne grants show authorization is tied to object location, actor, groups, and behavior; the revised model must generalize this beyond parent paths. | Whether a small capability model can avoid hidden precedence complexity while supporting graph relations and containment projections. |
 | Repository-local semantics | Airadne needs DSL/core semantics stored alongside the project for AI handover. | Whether unfamiliar AI agents can learn them cheaply and correctly. |
 
 ## Questionable Assumptions And Counterexamples
@@ -103,31 +112,34 @@ The main warning is that SimplyStore's current human-developer convenience mecha
 
 ## Competing Architectural Directions
 
-### Direction A: Object-Space Semantic Kernel
+### Direction A: Graph-First Object Space Kernel
 
-Use a uniform object/data space with stable identity, hierarchy, local behavior selection, semantic commands, derived projections, and contextual authorization.
+Use a uniform object/data space with stable identity, typed graph relationships, optional hierarchical projections, local behavior selection, semantic commands, derived projections, and contextual authorization.
 
 Why it is attractive:
 
 - Strong continuity with Ariadne's long-lived strengths.
 - Makes object identity and local specialization first-class.
-- Can make frontend/backend behavior traceable through one semantic space.
+- Can make frontend/backend behavior traceable through one semantic space without forcing every domain relation into a parent path.
+- Incorporates SimplyStore's stronger fit for graph/link-shaped data and derived views.
 
 Risks:
 
 - Acquisition/config/template lookup can become invisible magic.
 - A small kernel may become overloaded with cross-cutting concerns.
-- Authorization and context precedence need especially clear semantics.
+- Ariadne's history suggests strict hierarchy as identity can become a modeling trap.
+- Authorization and context precedence need especially clear semantics when relations, containment, and local override coexist.
 
 ### Direction B: Commanded Dataspace Kernel
 
-Start from a SimplyStore-like model: immutable read dataspace, semantic commands, command log, reconstruction, derived indexes/views, and explicit integrity boundaries.
+Start from a SimplyStore-like model: immutable read dataspace, semantic commands, command log, reconstruction, graph/link-oriented data, derived indexes/views, and explicit integrity boundaries.
 
 Why it is attractive:
 
 - Strong causal explanation from command intent to state transition.
 - Read-side immutability simplifies AI reasoning.
 - Good fit for audit, replay, and generated derived views.
+- Gains weight from the human warning that graph-shaped data should not be wrangled into strict hierarchy.
 
 Risks:
 
@@ -174,20 +186,22 @@ Risks:
 4. Can generated runtime code be verified independently from the generator's own assumptions?
 5. Can human reviewers challenge compressed semantics without becoming DSL specialists?
 6. Can a different AI model/provider learn the repository-local semantics quickly enough to make handover genuinely better?
-7. Is hierarchy a fundamental primitive, or should it be one relation in a more general graph/object model?
+7. What graph primitive replaces hierarchical identity without making the model too broad?
+8. Can hierarchy be kept as a projection without losing navigability, authorization explanation, or local behavior selection?
 
 ## Recommended Minimal Semantic Experiment
 
 Use a small "publication workspace" slice. It should be just large enough to exercise interacting concerns without becoming a product:
 
-- structured objects: site, section, page, asset, user/group;
-- identity and hierarchy: pages/assets live under sections;
-- relationships: page references asset; section belongs to site;
+- structured objects: site, section, page, asset, user/group, topic, language, workspace;
+- identity and relations: objects have stable IDs; section/page/asset/user/group/topic/language/workspace are linked by typed relationships;
+- hierarchy/containment projection: pages/assets may appear under sections, but this is not their required identity;
+- relationships: page references asset, page belongs to section, page is tagged with topic, page has language variant, user/group capabilities apply through relations, workspace includes draft objects;
 - query: list visible pages and resolve referenced assets;
 - mutation: create page, update page, publish page;
 - validation: page requires title/body before publish;
-- authorization: viewer/editor/publisher capabilities inherited or specialized by subtree;
-- contextual behavior: a section can override page rendering or validation for its subtree;
+- authorization: viewer/editor/publisher capabilities apply through groups, object relations, and projected containment;
+- contextual behavior: a section or other relation context can override page rendering or validation;
 - frontend/backend interaction: one rendered page or small editor view consumes the resulting behavior.
 
 Compare at least three representations:
@@ -207,7 +221,7 @@ For each representation, measure or record:
 - whether a human can inspect the authorization and behavior-selection explanation;
 - whether tests can independently detect wrong behavior selection, wrong authorization, and invalid generated output;
 - where complexity moved: app code, DSL/interpreter, generator, runtime framework, tests, or documentation;
-- blast radius of changing one primitive such as hierarchy inheritance or command replay;
+- blast radius of changing one primitive such as containment projection, graph relation traversal, or command replay;
 - whether ordinary code is simpler for the slice.
 
 ## Warning-Profile Disposition
@@ -217,17 +231,19 @@ The adopted Airadne warning lens is material here.
 - Premature closure: avoid treating Ariadne's object space or SimplyStore's command log as the answer.
 - Evidence overreach: repository evidence shows mechanisms exist, not that they are the right primitives.
 - Optionality loss: do not choose a substrate or DSL before the experiment can compare it against ordinary code.
-- Model closure: be careful making hierarchy mandatory before testing whether graph relations are a better primitive.
+- Model closure: strict hierarchy as identity now has Ariadne counterevidence; test graph-first identity with hierarchy as a projection.
 
 ## Result
 
 The evidence supports a first experiment comparing representations for the same publication-workspace slice.
 
+Human feedback has been incorporated: graph-first relationships are now a stronger candidate primitive, and hierarchy is treated as a projection/containment relation rather than identity.
+
 It does not support choosing a final architecture yet.
 
 ## Failure Cases / Limits
 
-- The Ariadne evidence is repository-local and historical; human interpretation is still needed to distinguish relied-upon concepts from merely present features.
+- The Ariadne evidence is repository-local and historical; more detailed human examples are still needed to distinguish relied-upon concepts from merely present features and to understand where strict hierarchy failed.
 - The SimplyStore evidence reflects an experimental project designed for human developers, not an AI-first substrate.
 - No AI handover trial has been run yet.
 - No human review of the proposed slice has been completed yet.
