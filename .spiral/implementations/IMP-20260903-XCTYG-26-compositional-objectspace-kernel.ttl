@@ -1,0 +1,23 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:IMP-20260903-XCTYG-26
+    a sd:Implementation ;
+    dcterms:identifier "IMP-20260903-XCTYG-26" ;
+    sd:repositoryPath ".spiral/implementations/IMP-20260903-XCTYG-26-compositional-objectspace-kernel.md" ;
+    sd:status sd:Active ;
+    sd:satisfies [
+        a sd:ArtifactReference ;
+        sd:artifact project:CYC-20260903-XCTYG-24 ;
+        sd:gitCommit "359596df0921d3148a2d219296dde50246614be8" ;
+        sd:fragment "cycle-goal"
+    ] ;
+    sd:implements [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-20260903-XCTYG-21 ;
+        sd:gitCommit "4569dd95b06987123aa5ff991ba7e0fc69047f60"
+    ] ;
+    sd:implementationLocation "src/graph-primitives.cjs" ;
+    sd:implementationLocation "src/graph-object-space.cjs" ;
+    sd:implementationLocation "test/graph-primitives.test.cjs" .
