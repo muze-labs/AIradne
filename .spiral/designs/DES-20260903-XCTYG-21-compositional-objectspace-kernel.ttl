@@ -1,0 +1,40 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:DES-20260903-XCTYG-21
+    a sd:Design ;
+    dcterms:identifier "DES-20260903-XCTYG-21" ;
+    sd:repositoryPath ".spiral/designs/DES-20260903-XCTYG-21-compositional-objectspace-kernel.md" ;
+    sd:status sd:Accepted ;
+    sd:satisfies [
+        a sd:ArtifactReference ;
+        sd:artifact project:CYC-20260903-XCTYG-19 ;
+        sd:gitCommit "897be61ba0e767f656a91678c4b1be98cf38461d" ;
+        sd:fragment "cycle-goal"
+    ] ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-20260903-XCTYG-11 ;
+        sd:gitCommit "cee0c771de472895c2be1cdb1245bc4104206f0c"
+    ] ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:EVD-20260903-XCTYG-17 ;
+        sd:gitCommit "c679b8c0dde1737403a6b4bdf516424514a857e1"
+    ] ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:FBK-20260903-XCTYG-18 ;
+        sd:gitCommit "7fe9f99097f3c5dff531ac7aaa16aab9913af735"
+    ] ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:UND-20260903-XCTYG-22 ;
+        sd:gitCommit "aee1c882a69d20a618f116148bb8992de6729009"
+    ] ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:FBK-20260903-XCTYG-23 ;
+        sd:gitCommit "101ea74cde60a445afda9ebe6d1a680d5631e35b"
+    ] .

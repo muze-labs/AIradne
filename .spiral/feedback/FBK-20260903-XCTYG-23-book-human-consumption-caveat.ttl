@@ -1,0 +1,25 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:FBK-20260903-XCTYG-23
+    a sd:Feedback ;
+    dcterms:identifier "FBK-20260903-XCTYG-23" ;
+    sd:repositoryPath ".spiral/feedback/FBK-20260903-XCTYG-23-book-human-consumption-caveat.md" ;
+    sd:status sd:Accepted ;
+    sd:provenanceConfidence sd:Explicit ;
+    sd:observes [
+        a sd:ArtifactReference ;
+        sd:artifact project:SRC-20260903-XCTYG-20 ;
+        sd:gitCommit "e554e80af5272f91600e222bd09854aa8af89fa8"
+    ] ;
+    sd:observes [
+        a sd:ArtifactReference ;
+        sd:artifact project:UND-20260903-XCTYG-22 ;
+        sd:gitCommit "aee1c882a69d20a618f116148bb8992de6729009"
+    ] ;
+    sd:observes [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-20260903-XCTYG-21 ;
+        sd:gitCommit "825a17102a1556cf18d7ca8bd59006036c79c5a4"
+    ] .
