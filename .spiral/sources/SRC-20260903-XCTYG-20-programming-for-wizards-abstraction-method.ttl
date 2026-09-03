@@ -1,0 +1,12 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:SRC-20260903-XCTYG-20
+    a sd:Source ;
+    dcterms:identifier "SRC-20260903-XCTYG-20" ;
+    dcterms:source <https://github.com/poef/programming-for-wizards/tree/6ff682bf129ad178eaae44e85e9e1cf93dc4da35/content/chapters> ;
+    sd:repositoryPath ".spiral/sources/SRC-20260903-XCTYG-20-programming-for-wizards-abstraction-method.md" ;
+    sd:status sd:Active ;
+    sd:sourceAvailability sd:Referenced ;
+    sd:provenanceConfidence sd:Explicit .
