@@ -6,7 +6,7 @@ project:IMP-20260903-XCTYG-13
     a sd:Implementation ;
     dcterms:identifier "IMP-20260903-XCTYG-13" ;
     sd:repositoryPath ".spiral/implementations/IMP-20260903-XCTYG-13-conventional-publication-baseline.md" ;
-    sd:status sd:Active ;
+    sd:status sd:Accepted ;
     sd:implementationLocation "package.json#scripts.test" ;
     sd:implementationLocation "src/publication-fixture.cjs" ;
     sd:implementationLocation "src/conventional-baseline.cjs" ;
