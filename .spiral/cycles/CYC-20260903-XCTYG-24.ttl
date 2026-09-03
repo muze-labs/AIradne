@@ -1,0 +1,34 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:CYC-20260903-XCTYG-24
+    a sd:Cycle ;
+    dcterms:identifier "CYC-20260903-XCTYG-24" ;
+    sd:repositoryPath ".spiral/cycles/CYC-20260903-XCTYG-24.md" ;
+    sd:status sd:Accepted ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:CYC-20260903-XCTYG-19 ;
+        sd:gitCommit "c7c7d2b27e7bc8871d2ab205e88adbf5aa2c031c"
+    ] ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-20260903-XCTYG-21 ;
+        sd:gitCommit "4569dd95b06987123aa5ff991ba7e0fc69047f60"
+    ] ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:FBK-20260903-XCTYG-27 ;
+        sd:gitCommit "5b1715cf72cdc0eb7de24301d592647dd3827eb1"
+    ] ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:IMP-20260903-XCTYG-28 ;
+        sd:gitCommit "9e6fc49eae70de9fd379b8ff302e23584389b490"
+    ] ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:EVD-20260903-XCTYG-29 ;
+        sd:gitCommit "c024c1321017b60f5a990c32afcd790449f141af"
+    ] .

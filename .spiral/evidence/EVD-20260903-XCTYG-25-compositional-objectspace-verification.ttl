@@ -1,0 +1,25 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:EVD-20260903-XCTYG-25
+    a sd:Evidence ;
+    dcterms:identifier "EVD-20260903-XCTYG-25" ;
+    sd:repositoryPath ".spiral/evidence/EVD-20260903-XCTYG-25-compositional-objectspace-verification.md" ;
+    sd:status sd:Accepted ;
+    sd:provenanceConfidence sd:Observed ;
+    sd:evaluates [
+        a sd:ArtifactReference ;
+        sd:artifact project:CYC-20260903-XCTYG-24 ;
+        sd:gitCommit "359596df0921d3148a2d219296dde50246614be8"
+    ] ;
+    sd:evaluates [
+        a sd:ArtifactReference ;
+        sd:artifact project:IMP-20260903-XCTYG-26 ;
+        sd:gitCommit "df0c20317dae5c9c942cc00dc9d075d1f9eb6a27"
+    ] ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:FBK-20260903-XCTYG-27 ;
+        sd:gitCommit "5b1715cf72cdc0eb7de24301d592647dd3827eb1"
+    ] .

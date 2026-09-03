@@ -1,0 +1,26 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:EVD-20260903-XCTYG-29
+    a sd:Evidence ;
+    dcterms:identifier "EVD-20260903-XCTYG-29" ;
+    sd:repositoryPath ".spiral/evidence/EVD-20260903-XCTYG-29-release-validation-change-comparison.md" ;
+    sd:status sd:Accepted ;
+    sd:provenanceConfidence sd:Observed ;
+    sd:evaluates [
+        a sd:ArtifactReference ;
+        sd:artifact project:CYC-20260903-XCTYG-24 ;
+        sd:gitCommit "d95510aab4bc14c3c037d24693b626388da6369b"
+    ] ;
+    sd:evaluates [
+        a sd:ArtifactReference ;
+        sd:artifact project:IMP-20260903-XCTYG-28 ;
+        sd:gitCommit "9e6fc49eae70de9fd379b8ff302e23584389b490"
+    ] ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-20260903-XCTYG-11 ;
+        sd:gitCommit "cee0c771de472895c2be1cdb1245bc4104206f0c" ;
+        sd:fragment "publish-validation-change"
+    ] .

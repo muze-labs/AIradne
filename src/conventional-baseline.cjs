@@ -212,8 +212,11 @@ function validatePage(data, pageId) {
     if (!page.body || !page.body.trim()) errors.push(`Published page ${pageId} requires body`);
   }
   if (selectBehavior(data, pageId, "validation").behavior?.id === "behavior-release-validation") {
-    if (resolveReferencedAssets(data, pageId).length === 0) {
-      errors.push(`Release page ${pageId} must reference at least one asset`);
+    const hasImageAsset = resolveReferencedAssets(data, pageId).some((asset) => {
+      return asset.mediaType?.startsWith("image/");
+    });
+    if (!hasImageAsset) {
+      errors.push(`Release page ${pageId} must reference at least one image asset`);
     }
   }
 

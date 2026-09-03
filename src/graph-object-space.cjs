@@ -1,132 +1,63 @@
+const {
+  buildContainmentTree,
+  containmentAncestors,
+  containmentPath,
+  createGraph
+} = require("./graph-primitives.cjs");
+
 const PAGE_STATUSES = new Set(["draft", "published"]);
 const BEHAVIOR_PRECEDENCE = ["direct-page", "topic", "section", "site"];
 
 class ObjectSpace {
   constructor(data) {
-    this.data = data;
-    this.objects = data.objects;
-    this.relations = data.relations;
-    this.rebuildIndexes();
-  }
-
-  rebuildIndexes() {
-    this.byType = new Map();
-    this.edgesByType = new Map();
-    this.edgesByTypeFrom = new Map();
-    this.edgesByTypeTo = new Map();
-
-    for (const object of Object.values(this.objects)) {
-      addToMapSet(this.byType, object.type, object.id);
-    }
-    for (const edge of this.relations) {
-      addToMapSet(this.edgesByType, edge.type, edge);
-      addToMapSet(this.edgesByTypeFrom, `${edge.type}\0${edge.from}`, edge);
-      addToMapSet(this.edgesByTypeTo, `${edge.type}\0${edge.to}`, edge);
-    }
+    this.graph = createGraph(data);
+    this.data = this.graph.data;
+    this.objects = this.graph.registry.records;
+    this.relations = this.graph.relationFacts.records;
   }
 
   get(id, expectedType) {
-    const object = this.objects[id];
-    if (!object) {
-      throw new Error(`Unknown object: ${id}`);
-    }
-    if (expectedType && object.type !== expectedType) {
-      throw new Error(`Expected ${id} to be ${expectedType}, got ${object.type}`);
-    }
-    return object;
+    return this.graph.registry.get(id, expectedType);
   }
 
   all(type) {
-    return [...(this.byType.get(type) || [])].map((id) => this.get(id));
+    return this.graph.registry.all(type);
   }
 
   edges(type, options = {}) {
-    if (options.from !== undefined) {
-      return [...(this.edgesByTypeFrom.get(`${type}\0${options.from}`) || [])].filter((edge) => {
-        return options.to === undefined || edge.to === options.to;
-      });
-    }
-    if (options.to !== undefined) {
-      return [...(this.edgesByTypeTo.get(`${type}\0${options.to}`) || [])];
-    }
-    return [...(this.edgesByType.get(type) || [])];
+    return this.graph.relationIndex.edges(type, options);
   }
 
   targets(type, from) {
-    return this.edges(type, { from }).map((edge) => edge.to);
+    return this.graph.relationIndex.targets(type, from);
   }
 
   sources(type, to) {
-    return this.edges(type, { to }).map((edge) => edge.from);
+    return this.graph.relationIndex.sources(type, to);
   }
 
   addObject(object) {
-    if (this.objects[object.id]) {
-      throw new Error(`Object already exists: ${object.id}`);
-    }
-    this.objects[object.id] = object;
-    addToMapSet(this.byType, object.type, object.id);
+    return this.graph.registry.add(object);
   }
 
   connect(edge) {
-    if (edge.to !== undefined) this.get(edge.to);
-    this.get(edge.from);
-    this.relations.push(edge);
-    addToMapSet(this.edgesByType, edge.type, edge);
-    addToMapSet(this.edgesByTypeFrom, `${edge.type}\0${edge.from}`, edge);
-    if (edge.to !== undefined) {
-      addToMapSet(this.edgesByTypeTo, `${edge.type}\0${edge.to}`, edge);
-    }
+    return this.graph.relationFacts.add(edge);
   }
 
   hasEdge(type, from, to) {
-    return this.edges(type, { from, to }).length > 0;
+    return this.graph.relationFacts.has(type, from, to);
   }
 
   containmentPathFromScope(scopeId, objectId) {
-    const queue = [{ id: scopeId, path: [] }];
-    const seen = new Set([scopeId]);
-
-    while (queue.length > 0) {
-      const current = queue.shift();
-      if (current.id === objectId) return current.path;
-
-      for (const edge of this.edges("contains", { from: current.id })) {
-        if (seen.has(edge.to)) continue;
-        seen.add(edge.to);
-        queue.push({
-          id: edge.to,
-          path: [...current.path, edge]
-        });
-      }
-    }
-
-    return undefined;
+    return containmentPath(this.graph, scopeId, objectId);
   }
 
   ancestorsViaContainment(objectId) {
-    const ancestors = [];
-    const queue = this.edges("contains", { to: objectId }).map((edge) => ({
-      id: edge.from,
-      path: [edge]
-    }));
-    const seen = new Set();
+    return containmentAncestors(this.graph, objectId);
+  }
 
-    while (queue.length > 0) {
-      const current = queue.shift();
-      if (seen.has(current.id)) continue;
-      seen.add(current.id);
-      ancestors.push(current);
-
-      for (const edge of this.edges("contains", { to: current.id })) {
-        queue.push({
-          id: edge.from,
-          path: [...current.path, edge]
-        });
-      }
-    }
-
-    return ancestors;
+  containmentTree(rootId, options = {}) {
+    return buildContainmentTree(this.graph, rootId, options);
   }
 }
 
@@ -170,25 +101,7 @@ function resolveReferencedAssets(space, pageId) {
 }
 
 function buildNavigationProjection(space, rootId) {
-  const root = space.get(rootId);
-  const children = space
-    .targets("contains", rootId)
-    .map((childId) => buildNavigationProjection(space, childId))
-    .filter((node) => node.object.type === "section" || node.object.type === "page")
-    .sort((left, right) => bySlugThenId(left.object, right.object));
-
-  return {
-    id: root.id,
-    type: root.type,
-    slug: root.slug,
-    title: root.title,
-    object: root,
-    projection: {
-      relation: "contains",
-      identity: "stable-id"
-    },
-    children
-  };
+  return space.containmentTree(rootId, { includeTypes: ["section", "page"] });
 }
 
 function listPagesByTopic(space, topicId) {
@@ -247,8 +160,11 @@ function validatePage(space, pageId) {
 
   const validationBehavior = selectBehavior(space, pageId, "validation");
   if (validationBehavior.behavior?.id === "behavior-release-validation") {
-    if (resolveReferencedAssets(space, pageId).length === 0) {
-      errors.push(`Release page ${pageId} must reference at least one asset`);
+    const hasImageAsset = resolveReferencedAssets(space, pageId).some((asset) => {
+      return asset.mediaType?.startsWith("image/");
+    });
+    if (!hasImageAsset) {
+      errors.push(`Release page ${pageId} must reference at least one image asset`);
     }
   }
 
@@ -523,11 +439,6 @@ function compactCheckedGrant(entry) {
     scopeAllowed: entry.scopeTrace.allowed,
     scopeMode: entry.scopeTrace.mode
   };
-}
-
-function addToMapSet(map, key, value) {
-  if (!map.has(key)) map.set(key, new Set());
-  map.get(key).add(value);
 }
 
 function sortObjects(objects) {

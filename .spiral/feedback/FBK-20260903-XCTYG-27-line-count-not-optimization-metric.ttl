@@ -1,0 +1,20 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:FBK-20260903-XCTYG-27
+    a sd:Feedback ;
+    dcterms:identifier "FBK-20260903-XCTYG-27" ;
+    sd:repositoryPath ".spiral/feedback/FBK-20260903-XCTYG-27-line-count-not-optimization-metric.md" ;
+    sd:status sd:Accepted ;
+    sd:provenanceConfidence sd:Explicit ;
+    sd:observes [
+        a sd:ArtifactReference ;
+        sd:artifact project:EVD-20260903-XCTYG-25 ;
+        sd:gitCommit "9f21788b78bdb9073448208f6f5632d4b7b24b69"
+    ] ;
+    sd:observes [
+        a sd:ArtifactReference ;
+        sd:artifact project:CYC-20260903-XCTYG-24 ;
+        sd:gitCommit "2abffb763b9f419a883d3fb8415d84fcbd5bdb80"
+    ] .
