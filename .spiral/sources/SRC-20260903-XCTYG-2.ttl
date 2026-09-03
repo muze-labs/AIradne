@@ -1,0 +1,11 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:SRC-20260903-XCTYG-2
+    a sd:Source ;
+    dcterms:identifier "SRC-20260903-XCTYG-2" ;
+    sd:repositoryPath ".spiral/sources/SRC-20260903-XCTYG-2.md" ;
+    sd:status sd:Accepted ;
+    sd:sourceAvailability sd:Retained ;
+    sd:provenanceConfidence sd:Explicit .

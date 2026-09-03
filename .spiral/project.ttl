@@ -1,0 +1,9 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:CTX-20260903-XCTYG-1
+    a sd:ProjectContext ;
+    dcterms:identifier "CTX-20260903-XCTYG-1" ;
+    sd:repositoryPath ".spiral/project-context.md" ;
+    sd:status sd:Active .
