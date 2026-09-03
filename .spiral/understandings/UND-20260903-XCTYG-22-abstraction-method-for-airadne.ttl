@@ -6,7 +6,7 @@ project:UND-20260903-XCTYG-22
     a sd:Understanding ;
     dcterms:identifier "UND-20260903-XCTYG-22" ;
     sd:repositoryPath ".spiral/understandings/UND-20260903-XCTYG-22-abstraction-method-for-airadne.md" ;
-    sd:status sd:Active ;
+    sd:status sd:Accepted ;
     sd:provenanceConfidence sd:Evidenced ;
     sd:interprets [
         a sd:ArtifactReference ;
