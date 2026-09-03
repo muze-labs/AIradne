@@ -41,6 +41,26 @@ Current project understanding: `.spiral/understandings/UND-20260903-XCTYG-3.md`
 
 Initial request: `.spiral/requests/REQ-20260903-XCTYG-4.md`
 
+## Greenfield Intake State
+
+Status: **Complete**
+
+Human-confirmed complete on: 2026-09-03
+
+| Required topic | Disposition | Notes / source |
+|---|---|---|
+| Purpose, users/stakeholders, goals | Covered | Human confirmed Airadne investigates AI-first architecture for AI developers/agents, with humans as reviewers/governors |
+| Current posture | Covered | Greenfield research and architecture exploration |
+| Important outcomes / metrics | Covered | Human confirmed reduced AI context needed, model/provider handover, human auditability, causal explainability, and falsifiable verification |
+| Consequential prior decisions / reversibility | Covered | No implementation architecture chosen yet; Ariadne/SimplyStore are evidence sources rather than constraints |
+| Invariants / commitments | Covered | Greenfield intake constraints and durable non-goals recorded below |
+| Known / tolerated problems | Covered | Initial risks recorded below; all are investigation concerns rather than accepted architecture problems |
+| Reliable feedback / reality sources | Covered | Human interpretation, repository evidence, semantic experiments, AI handover trials, and human review |
+| Knowledge gaps / affinity needs | Covered | Ariadne historical lessons, SimplyStore substrate suitability, DSL value, generated-code trust, and handover measurement remain uncertain |
+| Relevant future direction | Covered | Evidence map first; no multi-cycle implementation roadmap yet |
+| Risk-discovery / metric-profile disposition | Covered | No separate reusable profiles selected yet; project-specific success measures are recorded directly |
+| Integration target / pre-merge validation | Covered | Authoritative branch `main`; Spiral cycle branches; history-preserving merge commits; Spiral validation before integration where tooling supports it |
+
 ## Intended Users
 
 Primary intended user: AI developers and AI coding agents that need to understand, modify, verify, and hand over software systems.
@@ -60,6 +80,16 @@ Do not begin by designing a programming language, rewriting Ariadne, or assuming
 No governing multi-cycle implementation roadmap exists yet.
 
 The current governing frame is exploratory: use early cycles to gather evidence and reduce uncertainty before committing to architecture.
+
+## Integration Context
+
+Authoritative integration branch/ref: `main`.
+
+Review/integration boundary: Spiral cycle branches with human-visible cycle evaluation before integration.
+
+Integration history rule: preserve causal history with normal merge commits. Do not squash/rebase Spiral causal cycle history.
+
+Pre-merge Spiral validation: run Spiral validation before integration where tooling supports it. Current local caveat: the full validator scans nested submodule `.spiral` artifacts and reports duplicate legacy IDs from submodules; project-local Turtle parsing has been verified separately.
 
 ## Project Goals And Important Outcomes
 
@@ -103,15 +133,19 @@ The repo currently contains Spiral methodology and two evidence-source submodule
 
 ## Active Engineering Culture
 
-No project-specific culture profile has been adopted yet.
+Airadne adopts `CUL-20260903-XCTYG-5` as its project culture profile.
 
-The Muze engineering profile in `.spiral-core/cultures/muze-engineering.md` is available and likely relevant, but adoption should be explicit when it materially shapes a design or implementation choice.
+| Culture/profile | Version/source | Applicability here | Why active here | Local deviations |
+|---|---|---|---|---|
+| `CUL-20260903-XCTYG-5` - Airadne Muze Engineering Defaults | `.spiral/culture.md` at commit `e2b72a6f7f86e331b5d09aceb61ea1659b82bb4e` | Airadne research, architecture exploration, semantic experiments, and future implementation choices when several approaches remain acceptable | Human confirmed adoption on 2026-09-03; simplicity, inspectability, correctable boundaries, and evidence before abstraction are directly relevant | Defeasible default only; ordinary code remains a serious baseline and compact-semantics claims must be actively falsified |
 
 ## Active Warning Profiles
 
-No warning profile has been adopted yet.
+Airadne adopts `WPF-20260903-XCTYG-6` as its project warning profile.
 
-The bundled human-impact and epistemic warning profile is available, but it should not be treated as active unless intentionally adopted.
+| Warning profile | Version/source | Applicability here | Why active here | Local deviations |
+|---|---|---|---|---|
+| `WPF-20260903-XCTYG-6` - Airadne Human Impact And Epistemic Lens | `.spiral/warning-profiles/WPF-20260903-XCTYG-6.md` at commit `e2b72a6f7f86e331b5d09aceb61ea1659b82bb4e` | Consequential framing, design, verification, generated-code trust, AI handover claims, human auditability claims, and future product/domain modeling | Human confirmed adoption on 2026-09-03 | Significance-gated inspection lens only; not routine ceremony and not an automatic veto |
 
 ## Important Current Constraints
 
@@ -121,6 +155,7 @@ The bundled human-impact and epistemic warning profile is available, but it shou
 | Ariadne terminology should not be preserved unnecessarily | Greenfield intake | The project should identify fundamental properties, not clone historical vocabulary |
 | Conventional web patterns are neither assumed nor rejected | Greenfield intake | Keeps the comparison honest |
 | DSL value must be evaluated by where complexity moves | Greenfield intake | Prevents semantic compression from becoming hidden complexity |
+| No hard implementation constraints yet | Human intake confirmation on 2026-09-03 | Preferred language/runtime, licensing, deployment target, and avoided technologies should be discovered together rather than invented now |
 
 ## Reliable Feedback / Reality Sources
 
@@ -131,6 +166,7 @@ The bundled human-impact and epistemic warning profile is available, but it shou
 | Minimal semantic experiments | Whether candidate representations reduce AI context burden and improve verification | Experiments must be designed before conclusions can be trusted |
 | AI handover trials | Whether repository-local semantics can be cheaply learned by another model/provider | Not yet performed |
 | Human review | Whether explanations remain inspectable and challengeable | Not yet performed for any candidate architecture |
+| Human historical interpretation | Which Ariadne/SimplyStore ideas mattered in practice and why | Human is the initial authority; repository evidence supports but does not finally determine interpretation |
 
 ## Known / Tolerated Problems And Risks
 

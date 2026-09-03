@@ -6,4 +6,14 @@ project:CTX-20260903-XCTYG-1
     a sd:ProjectContext ;
     dcterms:identifier "CTX-20260903-XCTYG-1" ;
     sd:repositoryPath ".spiral/project-context.md" ;
-    sd:status sd:Active .
+    sd:status sd:Active ;
+    sd:adoptsCulture [
+        a sd:ArtifactReference ;
+        sd:artifact project:CUL-20260903-XCTYG-5 ;
+        sd:gitCommit "e2b72a6f7f86e331b5d09aceb61ea1659b82bb4e"
+    ] ;
+    sd:adoptsWarningProfile [
+        a sd:ArtifactReference ;
+        sd:artifact project:WPF-20260903-XCTYG-6 ;
+        sd:gitCommit "e2b72a6f7f86e331b5d09aceb61ea1659b82bb4e"
+    ] .
