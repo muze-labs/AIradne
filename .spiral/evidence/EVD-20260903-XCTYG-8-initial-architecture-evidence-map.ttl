@@ -1,0 +1,33 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:EVD-20260903-XCTYG-8
+    a sd:VerificationEvidence ;
+    dcterms:identifier "EVD-20260903-XCTYG-8" ;
+    sd:repositoryPath ".spiral/evidence/EVD-20260903-XCTYG-8-initial-architecture-evidence-map.md" ;
+    sd:status sd:Active ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:REQ-20260903-XCTYG-4 ;
+        sd:gitCommit "b14c27e1858440ea0d24dfd5283aabd563bcf835" ;
+        sd:fragment "evidence-map"
+    ] ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:REQ-20260903-XCTYG-4 ;
+        sd:gitCommit "b14c27e1858440ea0d24dfd5283aabd563bcf835" ;
+        sd:fragment "competing-directions"
+    ] ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:REQ-20260903-XCTYG-4 ;
+        sd:gitCommit "b14c27e1858440ea0d24dfd5283aabd563bcf835" ;
+        sd:fragment "falsification-targets"
+    ] ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:REQ-20260903-XCTYG-4 ;
+        sd:gitCommit "b14c27e1858440ea0d24dfd5283aabd563bcf835" ;
+        sd:fragment "experiment-candidate"
+    ] .
