@@ -6,7 +6,7 @@ project:IMP-20260903-XCTYG-28
     a sd:Implementation ;
     dcterms:identifier "IMP-20260903-XCTYG-28" ;
     sd:repositoryPath ".spiral/implementations/IMP-20260903-XCTYG-28-release-validation-image-asset-change.md" ;
-    sd:status sd:Active ;
+    sd:status sd:Accepted ;
     sd:satisfies [
         a sd:ArtifactReference ;
         sd:artifact project:CYC-20260903-XCTYG-24 ;

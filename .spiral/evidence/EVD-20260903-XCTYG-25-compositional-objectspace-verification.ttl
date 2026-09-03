@@ -6,7 +6,7 @@ project:EVD-20260903-XCTYG-25
     a sd:Evidence ;
     dcterms:identifier "EVD-20260903-XCTYG-25" ;
     sd:repositoryPath ".spiral/evidence/EVD-20260903-XCTYG-25-compositional-objectspace-verification.md" ;
-    sd:status sd:Active ;
+    sd:status sd:Accepted ;
     sd:provenanceConfidence sd:Observed ;
     sd:evaluates [
         a sd:ArtifactReference ;

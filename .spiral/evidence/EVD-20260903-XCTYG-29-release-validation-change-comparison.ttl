@@ -6,7 +6,7 @@ project:EVD-20260903-XCTYG-29
     a sd:Evidence ;
     dcterms:identifier "EVD-20260903-XCTYG-29" ;
     sd:repositoryPath ".spiral/evidence/EVD-20260903-XCTYG-29-release-validation-change-comparison.md" ;
-    sd:status sd:Active ;
+    sd:status sd:Accepted ;
     sd:provenanceConfidence sd:Observed ;
     sd:evaluates [
         a sd:ArtifactReference ;

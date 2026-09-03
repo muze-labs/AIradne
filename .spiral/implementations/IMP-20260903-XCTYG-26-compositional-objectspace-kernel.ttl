@@ -6,7 +6,7 @@ project:IMP-20260903-XCTYG-26
     a sd:Implementation ;
     dcterms:identifier "IMP-20260903-XCTYG-26" ;
     sd:repositoryPath ".spiral/implementations/IMP-20260903-XCTYG-26-compositional-objectspace-kernel.md" ;
-    sd:status sd:Active ;
+    sd:status sd:Accepted ;
     sd:satisfies [
         a sd:ArtifactReference ;
         sd:artifact project:CYC-20260903-XCTYG-24 ;
