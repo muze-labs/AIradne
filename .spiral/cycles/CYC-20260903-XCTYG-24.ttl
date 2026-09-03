@@ -16,4 +16,9 @@ project:CYC-20260903-XCTYG-24
         a sd:ArtifactReference ;
         sd:artifact project:DES-20260903-XCTYG-21 ;
         sd:gitCommit "4569dd95b06987123aa5ff991ba7e0fc69047f60"
+    ] ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:FBK-20260903-XCTYG-27 ;
+        sd:gitCommit "5b1715cf72cdc0eb7de24301d592647dd3827eb1"
     ] .

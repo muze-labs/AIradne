@@ -90,9 +90,9 @@ The existing graph-first publication tests still pass. In particular:
 - authorization explanations still include membership, grant, and scope traces;
 - behavior selection still follows deterministic precedence.
 
-## Size / Shape Evidence
+## Shape Diagnostic
 
-Line counts after implementation:
+Line counts after implementation, recorded only as a diagnostic about where implementation mass moved:
 
 ```text
 250 src/graph-primitives.cjs
@@ -104,9 +104,9 @@ Line counts after implementation:
 191 test/publication-behavior-contract.cjs
 ```
 
-Compared with the prior graph-first baseline, `src/graph-object-space.cjs` shrank from 544 lines to 452 lines, but total graph implementation code increased because `src/graph-primitives.cjs` now carries explicit primitive boundaries.
+Compared with the prior graph-first baseline, `src/graph-object-space.cjs` moved from 544 lines to 452 lines, and `src/graph-primitives.cjs` now carries explicit primitive boundaries.
 
-This is not a failure by itself under the accepted AI-first caveat. The question is whether the added vocabulary reduces hidden semantics and improves independent verification.
+This is not an optimization metric. Airadne is not trying to minimize line count. The relevant question is whether the vocabulary and boundaries reduce hidden semantics, fit AI context, improve causal explanation, and support independent verification.
 
 ## Evaluation Against Design
 
@@ -130,7 +130,7 @@ Limits:
 
 The cycle strengthens the compositional hypothesis relative to `FBK-20260903-XCTYG-18` because the graph layer now has independently testable pieces.
 
-It does not fully prove the AI-first hypothesis. The implementation grew in total code size and added new vocabulary. The stronger claim requires later evidence that a fresh agent can understand or change graph behavior with less context than before.
+It does not fully prove the AI-first hypothesis. The implementation added explicit vocabulary and primitive boundaries. The stronger claim requires later evidence that a fresh agent can understand or change graph behavior with less context than before.
 
 ## Confidence
 
