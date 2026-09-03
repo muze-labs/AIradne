@@ -1,0 +1,15 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:UND-20260903-XCTYG-3
+    a sd:Understanding ;
+    dcterms:identifier "UND-20260903-XCTYG-3" ;
+    sd:repositoryPath ".spiral/understandings/UND-20260903-XCTYG-3.md" ;
+    sd:status sd:Accepted ;
+    sd:provenanceConfidence sd:Evidenced ;
+    sd:interprets [
+        a sd:ArtifactReference ;
+        sd:artifact project:SRC-20260903-XCTYG-2 ;
+        sd:gitCommit "ead4d1d949e334e35f770f71581c6ce87b7316b5"
+    ] .
