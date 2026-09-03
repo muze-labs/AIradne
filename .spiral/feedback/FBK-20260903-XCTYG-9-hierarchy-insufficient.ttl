@@ -1,0 +1,15 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:FBK-20260903-XCTYG-9
+    a sd:Feedback ;
+    dcterms:identifier "FBK-20260903-XCTYG-9" ;
+    sd:repositoryPath ".spiral/feedback/FBK-20260903-XCTYG-9-hierarchy-insufficient.md" ;
+    sd:status sd:Accepted ;
+    sd:provenanceConfidence sd:Explicit ;
+    sd:observes [
+        a sd:ArtifactReference ;
+        sd:artifact project:EVD-20260903-XCTYG-8 ;
+        sd:gitCommit "8e37d250af3658c49601bcd6a26b5b5d0e502928"
+    ] .
