@@ -1,0 +1,9 @@
+[submodule ".spiral-core"]
+	path = .spiral-core
+	url = git@github.com:muze-labs/spiral-developer.git
+[submodule "simplystore"]
+	path = simplystore
+	url = https://github.com/simplyedit/simplystore.git
+[submodule "ariadne"]
+	path = ariadne
+	url = https://github.com/ariadne-cms/ariadne.git
