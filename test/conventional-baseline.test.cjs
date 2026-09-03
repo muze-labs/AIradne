@@ -128,7 +128,33 @@ test("rejects publishing an invalid release page and reports validation", () => 
   assert.throws(
     () => baseline.publishPage(data, "u-cy", page.id),
     (error) => {
-      assert.match(error.message, /must reference at least one asset/);
+      assert.match(error.message, /must reference at least one image asset/);
+      assert.equal(error.validation.valid, false);
+      return true;
+    }
+  );
+  assert.equal(data.objects[page.id].status, "draft");
+});
+
+test("rejects release-page publishing when only non-image assets are referenced", () => {
+  const data = cloneFixture();
+  const page = baseline.createDraftPage(data, "u-bert", {
+    id: "pg-release-with-pdf",
+    slug: "release-with-pdf",
+    title: "Release With PDF",
+    body: "Release copy.",
+    sectionId: "sec-news",
+    topicId: "topic-release",
+    languageId: "lang-en",
+    workspaceId: "ws-draft"
+  });
+
+  baseline.addAssetReference(data, "u-bert", page.id, "asset-handbook");
+
+  assert.throws(
+    () => baseline.publishPage(data, "u-cy", page.id),
+    (error) => {
+      assert.match(error.message, /must reference at least one image asset/);
       assert.equal(error.validation.valid, false);
       return true;
     }

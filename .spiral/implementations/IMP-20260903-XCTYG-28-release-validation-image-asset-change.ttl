@@ -1,0 +1,26 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:IMP-20260903-XCTYG-28
+    a sd:Implementation ;
+    dcterms:identifier "IMP-20260903-XCTYG-28" ;
+    sd:repositoryPath ".spiral/implementations/IMP-20260903-XCTYG-28-release-validation-image-asset-change.md" ;
+    sd:status sd:Active ;
+    sd:satisfies [
+        a sd:ArtifactReference ;
+        sd:artifact project:CYC-20260903-XCTYG-24 ;
+        sd:gitCommit "d95510aab4bc14c3c037d24693b626388da6369b" ;
+        sd:fragment "added-evaluation-task"
+    ] ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-20260903-XCTYG-11 ;
+        sd:gitCommit "cee0c771de472895c2be1cdb1245bc4104206f0c" ;
+        sd:fragment "publish-validation-change"
+    ] ;
+    sd:implementationLocation "src/publication-fixture.cjs" ;
+    sd:implementationLocation "src/conventional-baseline.cjs" ;
+    sd:implementationLocation "src/graph-object-space.cjs" ;
+    sd:implementationLocation "test/conventional-baseline.test.cjs" ;
+    sd:implementationLocation "test/publication-behavior-contract.cjs" .

@@ -37,6 +37,13 @@ const fixture = {
       mediaType: "image/svg+xml",
       label: "Airadne logo"
     },
+    "asset-handbook": {
+      id: "asset-handbook",
+      type: "asset",
+      slug: "handbook",
+      mediaType: "application/pdf",
+      label: "Airadne handbook"
+    },
 
     "topic-release": { id: "topic-release", type: "topic", slug: "release", label: "Release" },
     "topic-setup": { id: "topic-setup", type: "topic", slug: "setup", label: "Setup" },

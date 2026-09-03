@@ -160,8 +160,11 @@ function validatePage(space, pageId) {
 
   const validationBehavior = selectBehavior(space, pageId, "validation");
   if (validationBehavior.behavior?.id === "behavior-release-validation") {
-    if (resolveReferencedAssets(space, pageId).length === 0) {
-      errors.push(`Release page ${pageId} must reference at least one asset`);
+    const hasImageAsset = resolveReferencedAssets(space, pageId).some((asset) => {
+      return asset.mediaType?.startsWith("image/");
+    });
+    if (!hasImageAsset) {
+      errors.push(`Release page ${pageId} must reference at least one image asset`);
     }
   }
 
