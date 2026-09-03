@@ -1,0 +1,24 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:IMP-20260903-XCTYG-13
+    a sd:Implementation ;
+    dcterms:identifier "IMP-20260903-XCTYG-13" ;
+    sd:repositoryPath ".spiral/implementations/IMP-20260903-XCTYG-13-conventional-publication-baseline.md" ;
+    sd:status sd:Active ;
+    sd:implementationLocation "package.json#scripts.test" ;
+    sd:implementationLocation "src/publication-fixture.cjs" ;
+    sd:implementationLocation "src/conventional-baseline.cjs" ;
+    sd:implementationLocation "test/conventional-baseline.test.cjs" ;
+    sd:implements [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-20260903-XCTYG-11 ;
+        sd:gitCommit "dba2311e3975be03dcac5e6ad2c9a0f0ca0158c9"
+    ] ;
+    sd:satisfies [
+        a sd:ArtifactReference ;
+        sd:artifact project:CYC-20260903-XCTYG-12 ;
+        sd:gitCommit "7f640cb6759e0d102753afa2233abed59481d618" ;
+        sd:fragment "cycle-goal"
+    ] .
