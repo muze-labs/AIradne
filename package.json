@@ -1,0 +1,12 @@
+{
+  "name": "airadne",
+  "version": "0.0.0",
+  "private": true,
+  "description": "AI-first architecture experiments for Airadne.",
+  "scripts": {
+    "test": "node --test test/*.test.cjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
