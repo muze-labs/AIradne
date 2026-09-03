@@ -77,6 +77,7 @@ npm test
 ## Known Limits
 
 - The graph-first implementation is still in-memory and uses plain JavaScript objects.
+- `ObjectSpace` is a useful abstraction boundary, but it is not itself built from smaller cleaner abstractions; this implementation does not yet test the full Airadne semantic-core idea.
 - `ObjectSpace` is intentionally small and does not include a query language, persistence, transaction model, or command log.
 - The shared behavior contract proves parity on this slice, not superiority over the conventional baseline.
 - Explanation traces are structured by the implementation; they are not independently derived from a declarative semantics layer.

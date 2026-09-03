@@ -75,6 +75,8 @@ Additional graph-first tests verify:
 
 Project-local Turtle parse passed after the evidence artifact was added.
 
+Human review accepted this as a valid graph-first baseline with passing tests, but added a material limitation: `ObjectSpace` defines an abstraction but is not itself built out of cleaner abstractions, so this evidence does not yet test the full Airadne idea.
+
 ## Comparison Signals
 
 Simple line-count signal at this commit:
@@ -88,6 +90,8 @@ Simple line-count signal at this commit:
 ```
 
 This does not decide the comparison, but it is a useful early counterpressure: the graph-first implementation added more kernel code than the conventional baseline. Its compensating benefit is more structured explanation traces and a reusable behavior contract for later representations.
+
+This comparison signal is stronger after human review: the current `ObjectSpace` layer is a monolithic implementation abstraction, not a demonstration that object-space semantics can be composed from smaller, cleaner primitives.
 
 ## Observed Implementation Shape
 
@@ -107,6 +111,7 @@ Hierarchy remains a projection:
 ## Failure Cases / Limits
 
 - This evidence does not prove graph-first is better than conventional code.
+- This evidence does not test the full Airadne idea because `ObjectSpace` is not itself decomposed into cleaner abstractions.
 - The graph-first implementation is larger than the conventional baseline for this small slice.
 - Explanations are structured by code, not derived from an independent declarative model.
 - No fresh-agent handover/change trial has been run.

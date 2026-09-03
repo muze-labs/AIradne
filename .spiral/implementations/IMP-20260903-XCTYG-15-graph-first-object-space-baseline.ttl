@@ -6,7 +6,7 @@ project:IMP-20260903-XCTYG-15
     a sd:Implementation ;
     dcterms:identifier "IMP-20260903-XCTYG-15" ;
     sd:repositoryPath ".spiral/implementations/IMP-20260903-XCTYG-15-graph-first-object-space-baseline.md" ;
-    sd:status sd:Active ;
+    sd:status sd:Accepted ;
     sd:implementationLocation "src/graph-object-space.cjs#ObjectSpace" ;
     sd:implementationLocation "src/graph-object-space.cjs#createGraphFirstPublication" ;
     sd:implementationLocation "test/publication-behavior-contract.cjs#definePublicationBehaviorContract" ;

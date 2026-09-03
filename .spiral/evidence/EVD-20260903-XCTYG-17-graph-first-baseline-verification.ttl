@@ -6,7 +6,7 @@ project:EVD-20260903-XCTYG-17
     a sd:VerificationEvidence ;
     dcterms:identifier "EVD-20260903-XCTYG-17" ;
     sd:repositoryPath ".spiral/evidence/EVD-20260903-XCTYG-17-graph-first-baseline-verification.md" ;
-    sd:status sd:Active ;
+    sd:status sd:Accepted ;
     sd:verifies [
         a sd:ArtifactReference ;
         sd:artifact project:IMP-20260903-XCTYG-15 ;
@@ -22,6 +22,11 @@ project:EVD-20260903-XCTYG-17
         a sd:ArtifactReference ;
         sd:artifact project:IMP-20260903-XCTYG-13 ;
         sd:gitCommit "a83d493e623ad21d8edf0931684ada75be3b187f"
+    ] ;
+    sd:observes [
+        a sd:ArtifactReference ;
+        sd:artifact project:FBK-20260903-XCTYG-18 ;
+        sd:gitCommit "7fe9f99097f3c5dff531ac7aaa16aab9913af735"
     ] ;
     sd:satisfies [
         a sd:ArtifactReference ;
