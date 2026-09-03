@@ -39,6 +39,8 @@ Primary source: `.spiral/sources/SRC-20260903-XCTYG-2.md`
 
 Current project understanding: `.spiral/understandings/UND-20260903-XCTYG-3.md`
 
+Initial request: `.spiral/requests/REQ-20260903-XCTYG-4.md`
+
 ## Intended Users
 
 Primary intended user: AI developers and AI coding agents that need to understand, modify, verify, and hand over software systems.
