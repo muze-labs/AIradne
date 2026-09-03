@@ -1,0 +1,26 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:EVD-20260903-XCTYG-14
+    a sd:VerificationEvidence ;
+    dcterms:identifier "EVD-20260903-XCTYG-14" ;
+    sd:repositoryPath ".spiral/evidence/EVD-20260903-XCTYG-14-conventional-baseline-verification.md" ;
+    sd:status sd:Active ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:IMP-20260903-XCTYG-13 ;
+        sd:gitCommit "f7d103caa17c8b3a2d827255f1597949c57664f3"
+    ] ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-20260903-XCTYG-11 ;
+        sd:gitCommit "dba2311e3975be03dcac5e6ad2c9a0f0ca0158c9" ;
+        sd:fragment "representation-a"
+    ] ;
+    sd:satisfies [
+        a sd:ArtifactReference ;
+        sd:artifact project:CYC-20260903-XCTYG-12 ;
+        sd:gitCommit "7f640cb6759e0d102753afa2233abed59481d618" ;
+        sd:fragment "evaluation-basis"
+    ] .
