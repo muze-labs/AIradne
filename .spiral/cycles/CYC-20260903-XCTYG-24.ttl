@@ -1,0 +1,19 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:CYC-20260903-XCTYG-24
+    a sd:Cycle ;
+    dcterms:identifier "CYC-20260903-XCTYG-24" ;
+    sd:repositoryPath ".spiral/cycles/CYC-20260903-XCTYG-24.md" ;
+    sd:status sd:Active ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:CYC-20260903-XCTYG-19 ;
+        sd:gitCommit "c7c7d2b27e7bc8871d2ab205e88adbf5aa2c031c"
+    ] ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-20260903-XCTYG-21 ;
+        sd:gitCommit "4569dd95b06987123aa5ff991ba7e0fc69047f60"
+    ] .
