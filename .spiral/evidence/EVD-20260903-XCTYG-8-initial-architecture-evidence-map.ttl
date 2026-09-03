@@ -6,7 +6,7 @@ project:EVD-20260903-XCTYG-8
     a sd:VerificationEvidence ;
     dcterms:identifier "EVD-20260903-XCTYG-8" ;
     sd:repositoryPath ".spiral/evidence/EVD-20260903-XCTYG-8-initial-architecture-evidence-map.md" ;
-    sd:status sd:Active ;
+    sd:status sd:Accepted ;
     sd:verifies [
         a sd:ArtifactReference ;
         sd:artifact project:REQ-20260903-XCTYG-4 ;
