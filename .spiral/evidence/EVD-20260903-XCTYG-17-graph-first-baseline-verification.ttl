@@ -1,0 +1,36 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:EVD-20260903-XCTYG-17
+    a sd:VerificationEvidence ;
+    dcterms:identifier "EVD-20260903-XCTYG-17" ;
+    sd:repositoryPath ".spiral/evidence/EVD-20260903-XCTYG-17-graph-first-baseline-verification.md" ;
+    sd:status sd:Accepted ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:IMP-20260903-XCTYG-15 ;
+        sd:gitCommit "e47504b459447a9e3ba7508e26db4b12d6b8c51d"
+    ] ;
+    sd:verifies [
+        a sd:ArtifactReference ;
+        sd:artifact project:DES-20260903-XCTYG-11 ;
+        sd:gitCommit "dba2311e3975be03dcac5e6ad2c9a0f0ca0158c9" ;
+        sd:fragment "representation-b"
+    ] ;
+    sd:observes [
+        a sd:ArtifactReference ;
+        sd:artifact project:IMP-20260903-XCTYG-13 ;
+        sd:gitCommit "a83d493e623ad21d8edf0931684ada75be3b187f"
+    ] ;
+    sd:observes [
+        a sd:ArtifactReference ;
+        sd:artifact project:FBK-20260903-XCTYG-18 ;
+        sd:gitCommit "7fe9f99097f3c5dff531ac7aaa16aab9913af735"
+    ] ;
+    sd:satisfies [
+        a sd:ArtifactReference ;
+        sd:artifact project:CYC-20260903-XCTYG-16 ;
+        sd:gitCommit "2b0ed3069248cdd4f31b9394a9ae30972d235142" ;
+        sd:fragment "evaluation-basis"
+    ] .

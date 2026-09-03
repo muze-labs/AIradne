@@ -1,0 +1,20 @@
+@prefix sd: <https://muze.nl/ns/spiral-developer#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix project: <urn:spiral:muze-labs:airadne:> .
+
+project:FBK-20260903-XCTYG-18
+    a sd:Feedback ;
+    dcterms:identifier "FBK-20260903-XCTYG-18" ;
+    sd:repositoryPath ".spiral/feedback/FBK-20260903-XCTYG-18-objectspace-not-compositional.md" ;
+    sd:status sd:Accepted ;
+    sd:provenanceConfidence sd:Explicit ;
+    sd:observes [
+        a sd:ArtifactReference ;
+        sd:artifact project:EVD-20260903-XCTYG-17 ;
+        sd:gitCommit "baee287c20c33903e987146ea6b2396e1f9cd7d2"
+    ] ;
+    sd:observes [
+        a sd:ArtifactReference ;
+        sd:artifact project:IMP-20260903-XCTYG-15 ;
+        sd:gitCommit "e47504b459447a9e3ba7508e26db4b12d6b8c51d"
+    ] .
