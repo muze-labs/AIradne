@@ -14,6 +14,8 @@ The accepted graph-first baseline proves behavior parity and useful trace shape,
 
 The goal is to turn that single abstraction into a small graph kernel plus publication-domain rules, without inventing a parser, persistence layer, generated runtime, or generalized query engine.
 
+This design uses _Programming for Wizards_ as method input, not as a human-first design constraint. The book's warnings about language proliferation must be reinterpreted for Airadne: a new primitive is acceptable if it reduces AI context burden and improves explicit semantics, even if it would be an unattractive extra language for human hand-authoring.
+
 ## Design Inputs
 
 - `DES-20260903-XCTYG-11`: graph-first experiment design and behavior contract.
@@ -230,13 +232,15 @@ This file split is provisional. The real criterion is whether each boundary has 
 
 The decomposition is weak or wrong if:
 
-- primitive names are harder to learn than the original class;
+- primitive names increase the total context needed for a fresh AI agent to make correct changes;
 - tests can only verify primitives through publication behavior;
 - domain words leak into relation indexing or generic traversal;
 - `ObjectSpace` still contains substantial algorithmic logic after extraction;
 - explanation traces become less explicit;
 - relation semantics are hidden behind generic traversal cleverness;
 - line count decreases but conceptual count increases.
+
+It is not falsified merely because the decomposition introduces more vocabulary than a human-first JavaScript library would prefer. In this experiment, the question is whether the resulting vocabulary is explicit, bounded, context-cheap, and independently verifiable.
 
 ## Evaluation Evidence To Record After Implementation
 
@@ -254,6 +258,7 @@ If this design is accepted and implemented, record evidence answering:
 - The current fixture shape remains adequate for this decomposition test.
 - Plain JavaScript data is still the right medium for the next step.
 - It is acceptable for the implementation to add some lines if the conceptual boundaries become more falsifiable.
+- It is acceptable for the implementation to add some AI-facing vocabulary if that vocabulary reduces hidden semantics and context load.
 - The first useful compositional proof is not a final graph engine; it is a graph layer whose parts can be separately understood.
 
 ## Confidence

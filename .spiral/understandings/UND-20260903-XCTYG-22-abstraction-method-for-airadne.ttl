@@ -17,4 +17,9 @@ project:UND-20260903-XCTYG-22
         a sd:ArtifactReference ;
         sd:artifact project:FBK-20260903-XCTYG-18 ;
         sd:gitCommit "7fe9f99097f3c5dff531ac7aaa16aab9913af735"
+    ] ;
+    sd:derivedFrom [
+        a sd:ArtifactReference ;
+        sd:artifact project:FBK-20260903-XCTYG-23 ;
+        sd:gitCommit "101ea74cde60a445afda9ebe6d1a680d5631e35b"
     ] .

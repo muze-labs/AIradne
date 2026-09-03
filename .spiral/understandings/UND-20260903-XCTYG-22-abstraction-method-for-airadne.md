@@ -31,11 +31,24 @@ For Airadne, a clean abstraction is therefore not merely a reusable helper. It i
 - what facts or rules remain inspectable as data;
 - how the abstraction can be tested, replaced, or falsified.
 
+## AI-First Caveat
+
+The book was written for human consumption. Its warnings about too many languages already include the cost of human learning, team communication, and human fluency. Airadne is deliberately testing a different maintainer profile: AI agents with limited context, weak long-term continuity, and less attachment to familiar general-purpose languages.
+
+Therefore the book should not be applied as "avoid new languages because humans must learn them." For Airadne, the better test is:
+
+- does the new vocabulary reduce total context an AI must load to make a correct change?
+- are the semantics explicit enough for a fresh agent to learn cheaply?
+- can the language be verified independently?
+- can a human still audit the explanation even if they would not want to hand-author every sentence?
+
+A primitive or little language may be acceptable even when it would be too much for a human-first project, if it compresses meaning without hiding behavior.
+
 ## Consequences For Airadne
 
 ### New Words Must Earn Their Cost
 
-Every primitive introduced into Airadne becomes part of the project language. A primitive is justified only when it removes repeated explanatory burden or prevents a known class of mistakes. A shorter implementation is not enough.
+Every primitive introduced into Airadne becomes part of the project language. A primitive is justified only when it removes repeated explanatory burden or prevents a known class of mistakes for the intended maintainer. In this project that includes AI agents, so the cost is not only human learning time. A shorter implementation is not enough, but neither is human familiarity the deciding metric.
 
 ### Data Shape Comes Before Syntax
 
